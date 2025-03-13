@@ -1,61 +1,66 @@
+---
+import Image from "astro/components/Image.astro"
+---
+
 <footer class="footer-section bg-dark-1">
-    <div class="shape"><img src="/assets/img/shapes/footer-shape.png" alt="footer"></div>
+    <div class="shape"><Image width="672" height="387" src="/assets/img/shapes/footer-shape.png" alt="footer"></div>
     <div class="container">
         <div class="row footer-wrap">
             <div class="col-lg-3 col-md-6">
                 <div class="footer-widget">
                     <div class="widget-header">
                         <div class="footer-logo">
-                            <a href="index.html"><img src="/assets/img/logo/logo-2.png" alt="logo"></a>
+                            <a href="/"><Image width="201" height="52" src="/assets/img/logo/logo-2.png" alt="logo"></a>
                         </div>
                     </div>
-                    <p class="mb-20">Centric aplications productize before front end vortals visualize front end is results and value added</p>
-                    <h4 class="title">WE ARE AVAILABLE <span>Mon-Sat: 09.00 am to 6.30 pm</span></h4>
+                    <p class="mb-20">Tu privacidad es nuestra prioridad. Consulta nuestra Política de Privacidad para más información sobre cómo protegemos tus datos.</p>
+                    <h4 class="title">ESTAMOS DISPONIBLES <span>Lunes a sábado: 7.00 a.m, 6.30 p.m</span></h4>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-widget footer-col-2">
                     <div class="widget-header">
-                        <h3 class="widget-title">Useful Links</h3>
+                        <h3 class="widget-title">Enlaces útiles</h3>
                     </div>
                     <ul class="footer-list">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="project.html">Our Gallery</a></li>
-                        <li><a href="service.html">Our Services</a></li>
-                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="/paginas/sobre-nosotros">Sobre nosotros</a></li>
+                        <li><a href="/paginas/portafolio">Portafolio</a></li>
+                        <li><a href="/servicios">Nuestros servicios</a></li>
+                        <li><a href="/paginas/equipo">Nuestro equipo</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-widget">
                     <div class="widget-header">
-                        <h3 class="widget-title">Contact Us</h3>
+                        <h3 class="widget-title">Contáctenos</h3>
                     </div>
                     <ul class="address-list">
-                        <li><a href="mailto:support@agency.com">support@agency.com</a></li>
-                        <li><a href="tel:+2585492153215">+258 (549) 2158 3215</a></li>
-                        <li>2589 Dorland Street Luke INUA <br> Berlin, Germany</li>
+                        <li><a href="mailto:contacto@pevite.com.ve">contacto@pevite.com.ve</a></li>
+                        <li><a href="tel:584120936057">+58 412-0936057</a></li>
+                        <li><a href="tel:+584123584174">+58 412-3584174</a></li>
+                        <li>Maracay, Edo. Aragua, Venezuela</li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-widget">
                     <div class="widget-header">
-                        <h3 class="widget-title">Subscribe newsletter</h3>
+                        <h3 class="widget-title">Suscríbete al boletín informativo</h3>
                     </div>
                     <div class="footer-form mb-20">
-                        <form action="#" class="rr-subscribe-form">
-                            <input class="form-control" type="email" name="email" placeholder="Email address">
+                        <form class="rr-subscribe-form">
+                            <input class="form-control" type="email" name="email" placeholder="Correo electrónico
+                            ">
                             <input type="hidden" name="action" value="mailchimpsubscribe">
-                            <button class="submit">Sign Up</button>
+                            <input id="inscribirse" type="button" value="Inscribirse" class="submit">
                             <div class="clearfix"></div>
                         </form>
                     </div>
                     <div class="form-check form-item">
                         <input class="form-check-input" type="checkbox" value="" id="man">
                         <label class="form-check-label" for="man">
-                            I’m okay with getting emails and having
-                            that tracked to improve my experience
+                            Estoy de acuerdo con recibir correos electrónicos y hacer un seguimiento de ellos para mejorar mi experiencia.
                         </label>
                     </div>
                 </div>
@@ -66,21 +71,18 @@
         <div class="container">
             <div class="row copyright-content">
                 <div class="col-md-6">
-                    <p>© 2024 Runok. All Rights Reserved.</p>
+                    <p>© 2025 PEVITE. Todos los derechos reservados.</p>
                 </div>
                 <div class="col-md-6">
                     <ul class="social-list">
                         <li class="facebook">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        </li>
-                        <li class="pinterest">
-                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                         </li>
                         <li class="twitter">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
                         </li>
                         <li class="instagram">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -88,3 +90,9 @@
         </div>
     </div>
 </footer>
+
+<script>
+    document.getElementById("inscribirse")?.addEventListener('click', ()=> {
+        alert("¡Atención! Esta página está en desarrollo. En pocos días estará disponible esta funcionalidad de nuestra plataforma.")
+    })
+</script>

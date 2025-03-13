@@ -3,7 +3,9 @@ import Footer from "../../components/shared/footer.astro";
 import HeaderTwo from "../../components/shared/headerTwo.astro";
 import Preloader from "../../components/shared/preloader.astro";
 import SidebarArea from "../../components/shared/sidebar-area.astro";
+import PageHeader from "../../components/tienda/page-header.astro";
 import Layout from "../../layouts/Layout.astro";
+import ShopSection from "../../components/tienda/shop-section.astro"
 ---
 
 <Layout title="Tienda | Productos">
@@ -30,172 +32,10 @@ import Layout from "../../layouts/Layout.astro";
     <div id="smooth-wrapper">
         <div id="smooth-content">
 
-        <section class="page-header" data-background="/assets/img/bg-img/page-header-bg.jpg">
-            <div class="overlay"></div>
-            <div class="shapes">
-                <div class="shape shape-1"><img src="/assets/img/shapes/page-header-shape-1.png" alt="shape"></div>
-                <div class="shape shape-2"><img src="/assets/img/shapes/page-header-shape-2.png" alt="shape"></div>
-                <div class="shape shape-3"><img src="/assets/img/shapes/page-header-shape-3.png" alt="shape"></div>
-            </div>
-            <div class="container">
-                <div class="page-header-content text-center">
-                    <h1 class="title">Our Shop Pages</h1>
-                    <h4 class="sub-title"><a class="home" href="index.html">Home </a><span></span><a class="inner-page" href="shop.html"> Our Shop Page</a></h4>
-                </div>
-            </div>
-        </section>
+        <PageHeader></PageHeader>
         <!-- ./ page-header -->
 
-        <section class="shop-section pt-130 pb-130">
-            <div class="container">
-                <div class="shop-top heading-space">
-                    <span class="left-content">Showing 1 - 12 of 30 Results</span>
-                    <div class="nice-select select-control country" tabindex="0"><span class="current">Short by Category</span><ul class="list"><li data-value="" class="option selected focus">Short by Category</li><li data-value="vdt" class="option">Plan One</li><li data-value="can" class="option">Plan Two</li><li data-value="uk" class="option">Plan Three</li></ul></div>
-                </div>
-                <div class="row gy-4">
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="shop-item">
-                            <div class="shop-thumb">
-                                <div class="overlay"></div>
-                                <img src="/assets/img/shop/shop-1.png" alt="shop">
-                                <span class="sale">sale</span>
-                                <ul class="shop-list">
-                                    <li><a href="#"><i class="fa-regular fa-cart-shopping"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-eye"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="shop-content">
-                                <span class="category">Watch Series</span>
-                                <h3 class="title"><a href="shop-details.html">Multiply Tokon Maxer</a><span> <span class="offer">$350.00</span>$250.00</span></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="shop-item">
-                            <div class="shop-thumb">
-                                <div class="overlay"></div>
-                                <img src="/assets/img/shop/shop-2.png" alt="shop">
-                                <ul class="shop-list">
-                                    <li><a href="#"><i class="fa-regular fa-cart-shopping"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-eye"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="shop-content">
-                                <span class="category">Headphone Box</span>
-                                <h3 class="title"><a href="shop-details.html">Boat Headphone</a><span>$350.00</span></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="shop-item">
-                            <div class="shop-thumb">
-                                <div class="overlay"></div>
-                                <img src="/assets/img/shop/shop-3.png" alt="shop">
-                                <span class="sale">sale</span>
-                                <ul class="shop-list">
-                                    <li><a href="#"><i class="fa-regular fa-cart-shopping"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-eye"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="shop-content">
-                                <span class="category">UPS Service</span>
-                                <h3 class="title"><a href="shop-details.html">Latest Ups available</a><span> <span class="offer">$250.00</span>$157.00</span></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="shop-item">
-                            <div class="shop-thumb">
-                                <div class="overlay"></div>
-                                <img src="/assets/img/shop/shop-4.png" alt="shop">
-                                <ul class="shop-list">
-                                    <li><a href="#"><i class="fa-regular fa-cart-shopping"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-eye"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="shop-content">
-                                <span class="category">Headphone Box</span>
-                                <h3 class="title"><a href="shop-details.html">Beats Headset</a><span>$342.00</span></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="shop-item">
-                            <div class="shop-thumb">
-                                <div class="overlay"></div>
-                                <img src="/assets/img/shop/shop-5.png" alt="shop">
-                                <ul class="shop-list">
-                                    <li><a href="#"><i class="fa-regular fa-cart-shopping"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-eye"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="shop-content">
-                                <span class="category">Watch Series</span>
-                                <h3 class="title"><a href="shop-details.html">Multiply Tokon Maxer</a><span>$223.00</span></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="shop-item">
-                            <div class="shop-thumb">
-                                <div class="overlay"></div>
-                                <img src="/assets/img/shop/shop-6.png" alt="shop">
-                                <span class="sale">sale</span>
-                                <ul class="shop-list">
-                                    <li><a href="#"><i class="fa-regular fa-cart-shopping"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-eye"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="shop-content">
-                                <span class="category">Headphone Box</span>
-                                <h3 class="title"><a href="shop-details.html">Boat Headphone</a><span> <span class="offer">$600.00</span>$421.00</span></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="shop-item">
-                            <div class="shop-thumb">
-                                <div class="overlay"></div>
-                                <img src="/assets/img/shop/shop-7.png" alt="shop">
-                                <ul class="shop-list">
-                                    <li><a href="#"><i class="fa-regular fa-cart-shopping"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-eye"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="shop-content">
-                                <span class="category">UPS Service</span>
-                                <h3 class="title"><a href="shop-details.html">Latest Ups available</a><span>$153.00</span></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="shop-item">
-                            <div class="shop-thumb">
-                                <div class="overlay"></div>
-                                <img src="/assets/img/shop/shop-8.png" alt="shop">
-                                <span class="sale">sale</span>
-                                <ul class="shop-list">
-                                    <li><a href="#"><i class="fa-regular fa-cart-shopping"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa-light fa-eye"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="shop-content">
-                                <span class="category">Headphone Box</span>
-                                <h3 class="title"><a href="shop-details.html">Beats Headset</a><span><span class="offer">$400.00</span>$230.00</span></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <ShopSection></ShopSection>
         <!-- ./ shop-section -->
 
         <Footer></Footer>

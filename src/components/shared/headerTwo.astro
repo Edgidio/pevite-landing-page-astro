@@ -1,8 +1,12 @@
+---
+const currentPath = Astro.url.pathname; // Ruta actual
+---
+
 <header class="header inner-header sticky-active">
     <div class="primary-header">
         <div class="primary-header-inner">
             <div class="header-logo d-lg-block">
-                <a href="index.html">
+                <a href="/">
                     <img src="/assets/img/logo/logo-2.png" alt="Logo">
                 </a>
             </div>
@@ -10,33 +14,35 @@
                 <div class="header-menu-wrap">
                     <div class="mobile-menu-items">
                         <ul>
-                            <li>
+                            <li class={currentPath === '/' ? 'active' : ''}>
                                 <a href="/">Inicio</a>
                             </li>
-                            <li  class="menu-item-has-children">
+                            <li class={`menu-item-has-children ${currentPath.startsWith('/paginas/') ? 'active' : ''}`}>
                                 <a >Paginas</a>
                                 <ul>
-                                    <li><a href="/paginas/sobre-nosotros">Sobre Nosotros</a></li>
-                                    <li><a href="/paginas/equipo">Equipo</a></li>
-                                    <li><a href="/paginas/portafolio">Portfolio</a></li>
-                                    <li><a href="/paginas/cotizacion">Cotización</a></li>
-                                    <li><a href="/paginas/preguntas-frecuentes">preguntas frecuentes</a></li>
+                                    <li><a href="/paginas/sobre-nosotros" >Sobre Nosotros</a></li>
+                                    <li><a href="/paginas/equipo" >Equipo</a></li>
+                                    <li><a href="/paginas/portafolio" >Portfolio</a></li>
+                                    <li><a href="/paginas/cotizacion" >Cotización</a></li>
+                                    <li><a href="/paginas/preguntas-frecuentes" >Preguntas Frecuentes</a></li>
                                 </ul>
                             </li>
-                            <li >
+                            <li class={currentPath === '/servicios' ? 'active' : ''}>
                                 <a href="/servicios">Servicios</a>
                             </li>
-                            <li class="menu-item-has-children">
+                            <li class={`menu-item-has-children ${currentPath.startsWith('/tienda/') ? 'active' : ''}`}>
                                 <a >Tienda</a>
                                 <ul>
-                                    <li><a href="/tienda/productos">Productos</a></li>
-                                    <li><a href="/tienda/carrito">Carrito</a></li>
+                                    <li><a href="/tienda/productos" >Productos</a></li>
+                                    <li><a href="/tienda/carrito" >Carrito</a></li>
                                 </ul>
                             </li>
-                            <li >
-                                <a >Blog</a>
+                            <li class={currentPath === '/blog' ? 'active' : ''}>
+                                <a href="/blog">Blog</a>
                             </li>
-                            <li><a href="/contacto">Contacto</a></li>
+                            <li class={currentPath === '/contacto' ? 'active' : ''}>
+                                <a href="/contacto">Contacto</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
