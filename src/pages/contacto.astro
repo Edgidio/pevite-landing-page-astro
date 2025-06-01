@@ -7,6 +7,8 @@ import Layout from "../layouts/Layout.astro";
 import ContactSection from "../components/contacto/contact-section.astro";
 import PageHeader from "../components/contacto/page-header.astro"
 
+import ContactForm from '../components/contacto/ContactForm'
+
 ---
 
 <Layout title="Contacto">
@@ -36,7 +38,8 @@ import PageHeader from "../components/contacto/page-header.astro"
         <PageHeader></PageHeader>
         <!-- ./ page-header -->
 
-        <ContactSection></ContactSection>
+        <ContactForm client:only="react" />
+         <!-- <ContactSection></ContactSection> -->
         <!-- ./ contact-section -->
 
         <div class="map-wrapper pb-130">
@@ -53,8 +56,4 @@ import PageHeader from "../components/contacto/page-header.astro"
     </div>    
 </Layout>
 
-<script>
-    document.getElementById("submit")?.addEventListener('click', ()=> {
-        alert("¡Atención! Esta página está en desarrollo. En pocos días estará disponible esta funcionalidad de nuestra plataforma.")
-    })
-</script>
+

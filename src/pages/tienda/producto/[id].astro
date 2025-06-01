@@ -1,0 +1,52 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Preloader from '../../../components/shared/preloader.astro';
+import SidebarArea from "../../../components/shared/sidebar-area.astro"
+import Footer from '../../../components/shared/footer.astro';
+import HeaderTwo from '../../../components/shared/headerTwo.astro';
+import DetailsPageHeader from '../../../components/tienda/details-page-header.astro';
+import DetailsProducto from "../../../components/tienda/details-producto"
+import { ProductosPimilares } from '../../../components/tienda/productos-similares';
+
+const { id } = Astro.params;
+---
+
+<Layout title="Producto">
+    <!-- header-area-start -->
+    <HeaderTwo></HeaderOne>
+    <!-- /.Main Header -->
+
+    <div id="popup-search-box">
+        <div class="box-inner-wrap d-flex align-items-center">
+            <form id="form" action="#" method="get" role="search">
+                <input id="popup-search" type="text" name="s" placeholder="Type keywords here...">
+            </form>
+            <div class="search-close"><i class="fa-sharp fa-regular fa-xmark"></i></div>
+        </div>
+    </div>
+    <!-- /#popup-search-box -->
+
+    <SidebarArea></SidebarArea>
+    <!--/.sidebar-area-->
+
+    <Preloader></Preloader>
+    <!-- ./ preloader -->
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+        <DetailsPageHeader></DetailsPageHeader>
+        <!-- ./ page-header -->
+
+        <DetailsProducto id={id} client:load></DetailsProducto>  
+
+
+        <!-- ./ shop-section -->
+         <ProductosPimilares id={id} client:idle></ProductosPimilares> 
+
+        <Footer></Footer>
+        <!-- ./ footer-section -->
+
+        </div>
+    </div>
+</Layout>

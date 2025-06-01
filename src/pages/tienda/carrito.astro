@@ -4,7 +4,7 @@ import HeaderTwo from "../../components/shared/headerTwo.astro";
 import Preloader from "../../components/shared/preloader.astro";
 import SidebarArea from "../../components/shared/sidebar-area.astro";
 import CarritoPageHeader from "../../components/tienda/carrito-page-header.astro";
-import CartSection from "../../components/tienda/cart-section.astro";
+import {CartSection} from "../../components/tienda/cart-section.jsx";
 import CartBox from "../../components/tienda/cart-box.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
@@ -36,7 +36,7 @@ import Layout from "../../layouts/Layout.astro";
         <CarritoPageHeader></CarritoPageHeader>
         <!-- ./ page-header -->
 
-        <CartSection></CartSection>
+        <CartSection client:load></CartSection>
         <!-- ./ cart-section -->
 
         <!-- <CartBox></CartBox> -->

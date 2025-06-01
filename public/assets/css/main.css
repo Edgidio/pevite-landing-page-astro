@@ -48,7 +48,7 @@ START: Template Default CSS
   --rr-color-heading-primary: #11151C;
   --rr-color-text-body: #B0B2B7;
   --rr-color-text-body-light: #74787C;
-  --rr-color-theme-primary: #058002;
+  --rr-color-theme-primary:#10b981; /* #058002 */
   --rr-color-theme-secondary: #ffc226;
   --rr-color-bg-1: #11151C;
   --rr-color-grey-1: #F8F8F8;
@@ -68,7 +68,7 @@ START: Template Default CSS
 	Typography CSS
 */
 body {
-  background-color: #02050A;
+  background-color: #0a0e18;;
   font-family: var(--rr-ff-body);
   font-size: 16px;
   line-height: 1.625;
@@ -78,6 +78,14 @@ body {
   z-index: 1;
 }
 
+.carrito_sin_productos{
+  text-align: center;
+  padding: 30px;
+}
+
+
+
+
 img {
   max-width: 100%;
 }
@@ -85,6 +93,20 @@ img {
 a {
   text-decoration: none;
 }
+
+.validaciones {
+  color: red;
+  margin-left: 10px;
+  margin-top: -12px;
+  margin-bottom: 15px;
+}
+
+.errorPeticion{
+  text-align: center;
+  font-size: 30px;
+  margin: 100px;
+}
+
 
 a,
 a:hover {
@@ -4945,7 +4967,7 @@ START: Hero CSS
   }
 }
 .hero-content .title:before {
-  background: linear-gradient(270deg, #058002 0%, transparent 100%);
+  background: linear-gradient(270deg, #10b981 0%, transparent 100%);
   content: "";
   width: 100%;
   height: 76%;
@@ -11775,7 +11797,7 @@ START: Sponsor CSS
   }
 }
 .page-header .page-header-content .title:before {
-  background: linear-gradient(270deg, #058002 0%, transparent 100%);
+  background: linear-gradient(270deg, #10b981 0%, transparent 100%);
   content: "";
   width: 100%;
   height: 76%;

@@ -6,6 +6,7 @@ import SidebarArea from "../../components/shared/sidebar-area.astro";
 import PageHeader from "../../components/tienda/page-header.astro";
 import Layout from "../../layouts/Layout.astro";
 import ShopSection from "../../components/tienda/shop-section.astro"
+import ShopSectionReact from "../../components/tienda/shop-section-react"
 ---
 
 <Layout title="Tienda | Productos">
@@ -35,7 +36,8 @@ import ShopSection from "../../components/tienda/shop-section.astro"
         <PageHeader></PageHeader>
         <!-- ./ page-header -->
 
-        <ShopSection></ShopSection>
+        <ShopSectionReact client:load ></ShopSectionReact>        
+        <!-- <ShopSection></ShopSection> -->
         <!-- ./ shop-section -->
 
         <Footer></Footer>

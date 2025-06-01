@@ -1,5 +1,6 @@
 ---
 import Image from "astro/components/Image.astro"
+import Subscriber from "./footer-isla"
 ---
 
 <footer class="footer-section bg-dark-1">
@@ -43,28 +44,7 @@ import Image from "astro/components/Image.astro"
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-widget">
-                    <div class="widget-header">
-                        <h3 class="widget-title">Suscríbete al boletín informativo</h3>
-                    </div>
-                    <div class="footer-form mb-20">
-                        <form class="rr-subscribe-form">
-                            <input class="form-control" type="email" name="email" placeholder="Correo electrónico
-                            ">
-                            <input type="hidden" name="action" value="mailchimpsubscribe">
-                            <input id="inscribirse" type="button" value="Inscribirse" class="submit">
-                            <div class="clearfix"></div>
-                        </form>
-                    </div>
-                    <div class="form-check form-item">
-                        <input class="form-check-input" type="checkbox" value="" id="man">
-                        <label class="form-check-label" for="man">
-                            Estoy de acuerdo con recibir correos electrónicos y hacer un seguimiento de ellos para mejorar mi experiencia.
-                        </label>
-                    </div>
-                </div>
-            </div>
+            <Subscriber client:only="react"></Subscriber>
         </div>
     </div>
     <div class="copyright-area">
@@ -91,8 +71,3 @@ import Image from "astro/components/Image.astro"
     </div>
 </footer>
 
-<script>
-    document.getElementById("inscribirse")?.addEventListener('click', ()=> {
-        alert("¡Atención! Esta página está en desarrollo. En pocos días estará disponible esta funcionalidad de nuestra plataforma.")
-    })
-</script>

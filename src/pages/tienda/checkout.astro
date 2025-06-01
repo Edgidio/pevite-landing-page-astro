@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Preloader from '../../components/shared/preloader.astro';
+import SidebarArea from "../../components/shared/sidebar-area.astro"
+import Footer from '../../components/shared/footer.astro';
+import HeaderTwo from '../../components/shared/headerTwo.astro';
+import {DatosUsuarioCompra} from "../../components/tienda/verificar-compra/datos-usuario-compra.jsx"
+import Header from '../../components/tienda/verificar-compra/header.astro';
+---
+
+<Layout title="Tienda | Verificar compra">
+    <!-- header-area-start -->
+    <HeaderTwo></HeaderOne>
+    <!-- /.Main Header -->
+
+    <div id="popup-search-box">
+        <div class="box-inner-wrap d-flex align-items-center">
+            <form id="form" action="#" method="get" role="search">
+                <input id="popup-search" type="text" name="s" placeholder="Type keywords here...">
+            </form>
+            <div class="search-close"><i class="fa-sharp fa-regular fa-xmark"></i></div>
+        </div>
+    </div>
+    <!-- /#popup-search-box -->
+
+    <SidebarArea></SidebarArea>
+    <!--/.sidebar-area-->
+
+    <Preloader></Preloader>
+    <!-- ./ preloader -->
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+        <Header/>
+        <!-- ./ page-header -->
+
+        <section class="checkout-section pt-130 pb-130">
+            <div class="container">
+
+                <!-- Componente -->
+                 <DatosUsuarioCompra client:load></DatosUsuarioCompra>
+            </div>
+        </section>
+        <!-- ./ checkout-section -->
+
+
+        <Footer></Footer>
+        <!-- ./ footer-section -->
+
+        </div>
+    </div>
+</Layout>
