@@ -1,0 +1,87 @@
+---
+const {servicio} = Astro.props;
+
+---
+
+<section class="service-details pt-130 pb-130">
+    <div class="container">
+        <div class="row gy-lg-0 gy-5">
+            <div class="col-lg-8 col-md-12">
+                <div class="sidebar-content-wrap">
+                    <div class="service-details-img">
+                        <img src={servicio.image} alt="service">
+                    </div>
+                    <div class="service-details-content">
+                        <h2 class="title">{servicio.title}</h2>
+                        <p class="mb-30">{servicio.description}</p>
+                        <div class="service-details-items">
+                            <div class="service-details-item">
+                                <div class="icon">
+                                    <!-- Icono aquí -->
+                                </div>
+                                <div class="content">
+                                    <h3 class="title">{servicio.details.strategy.title}</h3>
+                                    <p>{servicio.details.strategy.description}</p>
+                                </div>
+                            </div>
+                            <div class="service-details-item">
+                                <div class="icon">
+                                    <!-- Icono aquí -->
+                                </div>
+                                <div class="content">
+                                    <h3 class="title">{servicio.details.design.title}</h3>
+                                    <p>{servicio.details.design.description}</p>
+                                </div>
+                            </div>
+                            <div class="service-details-item">
+                                <div class="icon">
+                                    <!-- Icono aquí -->
+                                </div>
+                                <div class="content">
+                                    <h3 class="title">{servicio.details.testing.title}</h3>
+                                    <p>{servicio.details.testing.description}</p>
+                                </div>
+                            </div>
+                            <div class="service-details-item">
+                                <div class="icon">
+                                    <!-- Icono aquí -->
+                                </div>
+                                <div class="content">
+                                    <h3 class="title">{servicio.details.optimization.title}</h3>
+                                    <p>{servicio.details.optimization.description}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-50">{servicio.details.overview}</p>
+                        <h2 class="title">4 Pasos Clave en Nuestro Proceso</h2>
+                        <p class="mb-40">En Pevite seguimos una metodología probada para garantizar resultados exitosos en cada proyecto:</p>
+                        <div class="details-box-wrap">
+                            {servicio.details.process_steps.map((step: any, index: number) => (
+                                <div class="details-box">
+                                    <span class="number">0{index + 1}</span>
+                                    <div class="content">
+                                        <h4 class="title">{step.title}</h4>
+                                        <p>{step.description}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="service-widget">
+                    <h3 class="widget-title">Categorías Relacionadas</h3>
+                    <ul class="category-list">
+                        {servicio.details.categories.map((category: string) => (
+                            <li><a><i class="fa-sharp fa-regular fa-arrow-right"></i> {category}</a></li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ./ service-details -->
+
+

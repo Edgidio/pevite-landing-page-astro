@@ -12,7 +12,7 @@ export default function ShopSectionReact () {
         const fetchProductos = async () => {
             try {
 
-                const resProductos = await axios.get("https://backend.pevite.com.ve/admin/productos")
+                const resProductos = await axios.get("http://localhost:4000/admin/productos")
 
                 if (resProductos.status == 200){
                     return setProductos(resProductos.data)
@@ -120,7 +120,7 @@ export default function ShopSectionReact () {
                         <div className="shop-item">
                             <div /* onClick={() => irProducto(producto.id)} */  className="shop-thumb">
                                 <div className="overlay"></div>
-                                <img src={"https://backend.pevite.com.ve/" + producto.imagenes.small[0]} alt={producto.titulo} /> 
+                                <img src={"http://localhost:4000/" + producto.imagenes.small[0]} alt={producto.titulo} /> 
                                 {producto.enOferta ? (
                                 <span className="sale">Oferta</span>
                                 ) : null }

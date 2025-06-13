@@ -9,6 +9,7 @@ import AboutSection from '../components/index/about-section.astro';
 import ServiceSection from '../components/index/service-section.astro';
 import FaqSection from '../components/index/faq-section.astro';
 import HeroSection from '../components/index/hero-section.astro';
+import Testimonial from '../components/index/testimonial.astro';
 ---
 
 <Layout title="Inicio">
@@ -51,84 +52,9 @@ import HeroSection from '../components/index/hero-section.astro';
 			</div>
 		</div>
 		<!-- ./ running-text -->
-		
-		<section class="testimonial-section overflow-hidden">
-			<div class="container">
-				<div class="testi-carousel swiper">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<div class="testi-item text-center">
-								<div class="testi-thumb">
-									<img src="/assets/img/testi/testi-author-1.png" alt="Foto de Daniel Joseph">
-								</div>
-								<div class="testi-content">
-									<h3 class="author">Daniel Joseph <span>Escritor</span></h3>
-									<p>Trabajar con Innovatech Solutions fue una experiencia increíble. Su enfoque en la experiencia de usuario mejoró enormemente la narrativa de mi proyecto digital, haciendo que los contenidos sean más accesibles y atractivos.</p>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="testi-item text-center">
-								<div class="testi-thumb">
-									<img src="/assets/img/testi/testi-author-2.png" alt="Foto de Victoria Madison">
-								</div>
-								<div class="testi-content">
-									<h3 class="author">Victoria Madison <span>Desarrolladora</span></h3>
-									<p>Como desarrolladora, valoro la calidad del código y la tecnología de punta que Innovatech Solutions utiliza. Sus soluciones móviles personalizadas superaron mis expectativas en rendimiento y escalabilidad.</p>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="testi-item text-center">
-								<div class="testi-thumb">
-									<img src="/assets/img/testi/testi-author-3.png" alt="Foto de Nicholas Thomas">
-								</div>
-								<div class="testi-content">
-									<h3 class="author">Nicholas Thomas <span>Diseñador</span></h3>
-									<p>Innovatech Solutions transformó mi visión de diseño en una interfaz funcional y hermosa. Su colaboración y herramientas de diseño modernas hicieron el proceso fluido y creativo.</p>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="testi-item text-center">
-								<div class="testi-thumb">
-									<img src="/assets/img/testi/testi-author-5.png" alt="Foto de James Hallagher">
-								</div>
-								<div class="testi-content">
-									<h3 class="author">James Hallagher <span>Marketer</span></h3>
-									<p>Gracias a las soluciones digitales de Innovatech Solutions, mis campañas de marketing alcanzaron un nuevo nivel. La integración con móviles y UX optimizó el engagement de mi audiencia.</p>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="testi-item text-center">
-								<div class="testi-thumb">
-									<img src="/assets/img/testi/testi-author-6.png" alt="Foto de Amelia Harper">
-								</div>
-								<div class="testi-content">
-									<h3 class="author">Amelia Harper <span>Propietaria</span></h3>
-									<p>Como propietaria, confío plenamente en Innovatech Solutions. Sus servicios de desarrollo y diseño han impulsado el crecimiento de mi empresa con soluciones innovadoras y a tiempo.</p>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="testi-item text-center">
-								<div class="testi-thumb">
-									<img src="/assets/img/testi/testi-author-2.png" alt="Foto de Victoria Madison">
-								</div>
-								<div class="testi-content">
-									<h3 class="author">Victoria Madison <span>Escritora</span></h3>
-									<p>El soporte de Innovatech Solutions para proyectos de contenido digital fue excepcional. Sus herramientas de UX me ayudaron a crear historias que conectan mejor con los lectores.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-pagination"></div>
-				</div>
-			</div>
-		</section>
-		<!-- ./ testimonial-section -->
-		
+
+		<Testimonial></Testimonial>
+<!-- 		
 		<section class="project-section pt-130 pb-130">
 			<div class="container">
 				<div class="project-top heading-space align-items-end fade-wrapper">
@@ -257,7 +183,7 @@ import HeroSection from '../components/index/hero-section.astro';
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> -->
 		<!-- ./ project-section -->
 		
 		<div class="running-text running-1">
@@ -306,68 +232,6 @@ import HeroSection from '../components/index/hero-section.astro';
 		</div>
 		<!-- ./ running-text -->
 		
-		<section class="blog-section pt-130 pb-130 fade-wrapper">
-			<div class="container">
-				<div class="section-heading text-center">
-					<h4 class="sub-heading" data-text-animation="fade-in" data-duration="1.5">NOTICIAS Y ÚLTIMAS ACTUALIZACIONES</h4>
-					<h2 class="section-title" data-text-animation data-split="word" data-duration="1">Descubre las Historias Internas de Nuestra Empresa</h2>
-				</div>
-				<div class="post-wrap">
-					<div class="post-card-wrap fade-top">
-						<div class="post-card">
-							<div class="post-thumb">
-								<img src="/assets/img/blog/post-1.jpg" alt="Publicación sobre estrategias de UX">
-							</div>
-							<div class="post-content-wrap">
-								<div class="post-content">
-									<ul class="post-meta">
-										<li><i class="fa-sharp fa-regular fa-clock"></i>10 Febrero, 2025</li>
-										<li><i class="fa-light fa-user"></i>Publicado por: Admin</li>
-									</ul>
-									<h3 class="title"><a >Estrategias de Experiencia de Usuario (UX) que Impulsarán el Futuro de tu Negocio</a></h3>
-									<a  class="rr-primary-btn blog-btn">Leer Más <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="post-card-wrap fade-top">
-						<div class="post-card">
-							<div class="post-thumb">
-								<img src="/assets/img/blog/post-2.jpg" alt="Publicación sobre desarrollo móvil">
-							</div>
-							<div class="post-content-wrap">
-								<div class="post-content">
-									<ul class="post-meta">
-										<li><i class="fa-sharp fa-regular fa-clock"></i>15 Febrero, 2025</li>
-										<li><i class="fa-light fa-user"></i>Publicado por: Admin</li>
-									</ul>
-									<h3 class="title"><a >Cómo Innovatech Solutions Está Revolucionando el Desarrollo de Aplicaciones Móviles</a></h3>
-									<a  class="rr-primary-btn blog-btn">Leer Más <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="post-card-wrap fade-top">
-						<div class="post-card">
-							<div class="post-thumb">
-								<img src="/assets/img/blog/post-3.jpg" alt="Publicación sobre diseño digital">
-							</div>
-							<div class="post-content-wrap">
-								<div class="post-content">
-									<ul class="post-meta">
-										<li><i class="fa-sharp fa-regular fa-clock"></i>20 Febrero, 2025</li>
-										<li><i class="fa-light fa-user"></i>Publicado por: Admin</li>
-									</ul>
-									<h3 class="title"><a >El Impacto del Diseño Digital en el Éxito de tu Empresa: Consejos de Innovatech Solutions</a></h3>
-									<a  class="rr-primary-btn blog-btn">Leer Más <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- ./ blog-section -->
 		
 		<Footer></Footer>
 		<!-- ./ footer-section -->

@@ -76,7 +76,7 @@ export const CartSection = () => {
                                     </td>
                                     <td className="product-thumbnail">
                                         <a href="shop-details.html">
-                                            <img src={`https://backend.pevite.com.ve/${item.imagen}`} alt="img" />
+                                            <img src={`http://localhost:4000/${item.imagen}`} alt="img" />
                                         </a>
                                         <div className="product-thumbnail">
                                             <span className="category">{item.tipoProducto}</span>

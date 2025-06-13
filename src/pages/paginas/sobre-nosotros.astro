@@ -12,6 +12,35 @@ import CounterSection from '../../components/paginas/sobre-nosotros/counter-sect
 import ProcessSection from '../../components/paginas/sobre-nosotros/process-section.astro'
 import AboutSectionOne from '../../components/paginas/sobre-nosotros/about-section-one.astro'
 import PageHeader from '../../components/paginas/sobre-nosotros/page-header.astro';
+import axios, { AxiosError } from 'axios';
+
+
+let testimonials;
+let equipo
+let mensaje
+try {
+  const responseTestimonial = await axios.get('http://localhost:4000/admin/testimonial');
+  const responseEquipo = await axios.get('http://localhost:4000/admin/equipo');
+
+  testimonials = responseTestimonial.data;
+  equipo = responseEquipo.data;
+  
+} catch (error) {
+  
+
+  if (error instanceof AxiosError) {
+
+    if (error.code === 'ECONNREFUSED' || error.message.includes('connect ECONNREFUSED')) {
+        mensaje = {
+            messages: "No se pudo conectar con el servidor. Por favor, intenta de nuevo más tarde." 
+        }
+    } 
+
+  }
+
+  testimonials = []; 
+}
+
 ---
 
 <Layout title="Sobre nosotros">
@@ -56,11 +85,19 @@ import PageHeader from '../../components/paginas/sobre-nosotros/page-header.astr
         <AboutSection></AboutSection>
         <!-- ./ about-section -->
 
-        <TeamSection></TeamSection>
-        <!-- ./ team-section -->
+        {testimonials.length > 0 && true == true ? (
+            <div>
+                <TeamSection equipo={equipo}></TeamSection>
+               {/*  <!-- ./ team-section --> */}
 
-        <TestimonialSection></TestimonialSection>
-        <!-- ./ testimonial-section -->
+                <TestimonialSection testimonials={testimonials}></TestimonialSection>
+                {/* <!-- ./ testimonial-section --> */}
+            </div>
+            ) : (
+            <div class="errorPeticio-one"></div>
+        )}
+
+
 
         <Footer></Footer>
         <!-- ./ footer-section -->

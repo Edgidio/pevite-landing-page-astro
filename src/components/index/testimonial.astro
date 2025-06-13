@@ -1,0 +1,55 @@
+---
+import axios, { AxiosError } from "axios";
+
+let testimoniales;
+let mensaje;
+
+try {
+    const testimonialesRes = await axios.get("http://localhost:4000/admin/testimonial")
+    testimoniales = testimonialesRes.data
+} catch (error) {
+  if (error instanceof AxiosError) {
+
+    if (error.code === 'ECONNREFUSED' || error.message.includes('connect ECONNREFUSED')) {
+        mensaje = {
+            messages: "No se pudo conectar con el servidor. Por favor, intenta de nuevo más tarde." 
+        }
+    } 
+
+  }
+
+  testimoniales = []; 
+}
+
+---
+
+<section class="testimonial-section overflow-hidden">
+    <div class="container">
+        <div class="testi-carousel swiper">
+            <div class="swiper-wrapper">
+
+                {
+                    testimoniales.map( (testimonial: any) => (
+                    <div class="swiper-slide">
+                        <div class="testi-item text-center">
+                            <div class="testi-thumb">
+                                <img src="/assets/img/testi/testi-author-1.png" alt="Foto de Daniel Joseph"/>
+                            </div>
+                            <div class="testi-content">
+                                <h3 class="author">{testimonial.name}h <span>Escritor</span></h3>
+                                <p>{testimonial.testimonial}</p>
+                            </div>
+                        </div>
+                    </div>
+                    ) )
+                }
+                
+
+                
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+<!-- ./ testimonial-section -->

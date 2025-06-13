@@ -20,7 +20,7 @@ export const ProductosPimilares = ({id}) => {
         // Hacer la consulta a la API
         const fetchProducto = async () => {
             try {
-                const response = await fetch(`https://backend.pevite.com.ve/admin/productos/${id}/similar`);
+                const response = await fetch(`http://localhost:4000/admin/productos/${id}/similar`);
 
 
 
@@ -143,7 +143,7 @@ export const ProductosPimilares = ({id}) => {
                         <div className="shop-item">
                             <div className="shop-thumb">
                                 <div className="overlay"></div>
-                                <img src={`https://backend.pevite.com.ve/${producto.imagenes.small[0]}`} alt="shop" />
+                                <img src={`http://localhost:4000/${producto.imagenes.small[0]}`} alt="shop" />
                                 <ul className="shop-list">
                                     <li><a onClick={() => addCart(producto)}><i className="fa-regular fa-cart-shopping"></i></a></li>
                                     <li><a href={`/tienda/producto/${producto.id}`}><i className="fa-light fa-eye"></i></a></li>

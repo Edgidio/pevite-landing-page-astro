@@ -1,9 +1,94 @@
 ---
+
+import Footer from "../../../components/shared/footer.astro";
+import HeaderTwo from "../../../components/shared/headerTwo.astro";
+import Preloader from "../../../components/shared/preloader.astro";
+import SidebarArea from "../../../components/shared/sidebar-area.astro";
 import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/servicios/components/hader.astro";
+import ServiceDetails from "../../../components/servicios/servicio-detalle.astro"
+
+import axios, { AxiosError } from 'axios';
+
+const {id} = Astro.params
+
+export interface Service {
+    id:          number;
+    title:       string;
+    description: string;
+    image:       string;
+    icon:        string;
+    details:     Details;
+}
+
+export interface Details {
+    overview: string;
+    features: string[];
+    benefits: string[];
+}
+
+let servicio: Service[];
+let mensaje
+try {
+  const response = await axios.get('http://localhost:4000/admin/servicios/' + id);
+  servicio = response.data;
+  
+} catch (error) {
+  
+
+  if (error instanceof AxiosError) {
+
+    if (error.code === 'ECONNREFUSED' || error.message.includes('connect ECONNREFUSED')) {
+        mensaje = {
+            messages: "No se pudo conectar con el servidor. Por favor, intenta de nuevo más tarde." 
+        }
+    } 
+
+  }
+
+  servicio = []; 
+}
+
 
 
 ---
 
-<Layout title="Servicios | Detalles">
-    <h1>HOLAAA DETALLES</h1>
+<Layout title="Servicios">
+
+<!-- header-area-start -->
+<HeaderTwo></HeaderOne>
+    <!-- /.Main Header -->
+
+    <div id="popup-search-box">
+        <div class="box-inner-wrap d-flex align-items-center">
+            <form id="form" action="#" method="get" role="search">
+                <input id="popup-search" type="text" name="s" placeholder="Type keywords here...">
+            </form>
+            <div class="search-close"><i class="fa-sharp fa-regular fa-xmark"></i></div>
+        </div>
+    </div>
+    <!-- /#popup-search-box -->
+
+    <SidebarArea></SidebarArea>
+    <!--/.sidebar-area-->
+
+    <Preloader></Preloader>
+    <!-- ./ preloader -->
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+        <Header></Header>
+        <!-- ./ page-header -->
+
+            
+            <ServiceDetails servicio={servicio}></ServiceDetails>
+
+
+        <Footer></Footer>
+        <!-- ./ footer-section -->
+
+        </div>
+    </div>    
+
 </Layout>

@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-export default function ContactForm(){
-
+export default function ContactForm() {
     // Estado para los datos del formulario
     const [formData, setFormData] = useState({
         fullname: '',
@@ -12,83 +13,119 @@ export default function ContactForm(){
         message: ''
     });
 
-    const [validacionesFormulario, setvalidacionesFormulario] = useState({})
+    const [validacionesFormulario, setValidacionesFormulario] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleChange = (e) => {
-
-        if (e.target.id == "fullname") {
-            const { value } = e.target;
-            setFormData({...formData, fullname: value});
-        }
-
-        if (e.target.id == "lastname") {
-            const { value } = e.target;
-            setFormData({...formData, lastname: value});
-        }
+        const { id, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [id]: value
+        }));
         
-        if (e.target.id == "email") {
-            const { value } = e.target;
-            setFormData({...formData, email: value});
+        // Limpiar validación al escribir
+        if (validacionesFormulario[id]) {
+            setValidacionesFormulario(prev => {
+                const newErrors = {...prev};
+                delete newErrors[id];
+                return newErrors;
+            });
         }
+    };
 
-        if (e.target.id == "phone") {
-            const { value } = e.target;
-            setFormData({...formData, phone: value});
-        }
+    const submit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setValidacionesFormulario({});
 
-        if (e.target.id == "message") {
-            const { value } = e.target;
-            setFormData({...formData, message: value});
-        }
+        try {
+            const res = await axios.post("http://localhost:4000/admin/contacto", formData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
 
-    }
+            // Resetear formulario
+            setFormData({
+                fullname: '',
+                lastname: '',
+                email: '',
+                phone: '',
+                message: ''
+            });
 
-const submit = async () => {
-    try {
-        const res = await axios.post("http://localhost:4000/admin/contacto", formData, {
-            headers: {
-                'Content-Type': 'application/json'
+            if (res.data.includes("¡Gracias por escribirnos! ✉️ Ya")){
+
+                            // Mostrar notificación de éxito
+                toast.info(res.data, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+
+                return 
             }
-        });
 
-        // Estado para los datos del formulario
-        setFormData({
-            fullname: '',
-            lastname: '',
-            email: '',
-            phone: '',
-            message: ''
-        });
-        
-    } catch (error) {
-        if (error.response) {
-            // El servidor respondió con un código de error (4xx, 5xx)
-            setvalidacionesFormulario(error.response?.data.errors || {});
-        } else if (error.request) {
-            // La petición fue hecha pero no hubo respuesta (servidor caído)
-            alert("El servidor no está en línea. Por favor, inténtelo más tarde.");
-        } else {
-            // Error al configurar la petición
-            alert("Ocurrió un error inesperado. Por favor, inténtelo nuevamente.");
+            // Mostrar notificación de éxito
+            toast.success(res.data, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            
+        } catch (error) {
+            if (error.response) {
+                // Validaciones del servidor
+                if (error.response?.data.errors) {
+                    setValidacionesFormulario(error.response.data.errors);
+                } else {
+                    toast.error('Error al enviar el mensaje', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                }
+            } else if (error.request) {
+                toast.error('El servidor no responde. Intente más tarde', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            } else {
+                toast.error('Error inesperado. Por favor intente nuevamente', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            }
+        } finally {
+            setIsSubmitting(false);
         }
-    }
-}
-
-
-/*   
-  
-  // Estados para el proceso de envío
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // null, 'success', 'error'
-
-
-  
-
-   */
+    };
 
     return (
-    
         <section className="contact-section pt-130 pb-130">
+            <ToastContainer />
             <div className="container">
                 <div className="row gy-lg-0 gy-5">
                     <div className="col-lg-5 col-md-12">
@@ -136,32 +173,43 @@ const submit = async () => {
                     <div className="col-lg-7">
                         <div className="blog-contact-form form-2">
                             <div className="request-form">
-                                <form className="form-horizontal">
+                                <form onSubmit={submit} className="form-horizontal">
                                     <div className="form-group row">
                                         <div className="col-md-6">
                                             <div className="form-item">
-                                                <input onChange={handleChange} value={formData.fullname} type="text" id="fullname" name="fullname" className="form-control" placeholder="Su nombre"/>
+                                                <input 
+                                                    onChange={handleChange} 
+                                                    value={formData.fullname} 
+                                                    type="text" 
+                                                    id="fullname" 
+                                                    name="fullname" 
+                                                    className={`form-control ${validacionesFormulario.fullname ? 'is-invalid' : ''}`} 
+                                                    placeholder="Su nombre"
+                                                    disabled={isSubmitting}
+                                                />
                                             </div>
-                                            
-
-                                                
-                                            {(validacionesFormulario.fullname?.[0]) && (
-                                                <div className='validaciones'>
-                                                    {validacionesFormulario.fullname?.[0]}
+                                            {validacionesFormulario.fullname?.[0] && (
+                                                <div className='validaciones text-danger'>
+                                                    {validacionesFormulario.fullname[0]}
                                                 </div>
                                             )}
-                                            
-       
-                                            
                                         </div>
                                         <div className="col-md-6">
                                             <div className="form-item">
-                                                <input onChange={handleChange} value={formData.lastname} type="text" id="lastname" name="lastname" className="form-control" placeholder="Apellido"/>
+                                                <input 
+                                                    onChange={handleChange} 
+                                                    value={formData.lastname} 
+                                                    type="text" 
+                                                    id="lastname" 
+                                                    name="lastname" 
+                                                    className={`form-control ${validacionesFormulario.lastname ? 'is-invalid' : ''}`} 
+                                                    placeholder="Apellido"
+                                                    disabled={isSubmitting}
+                                                />
                                             </div>
-
-                                            {(validacionesFormulario.lastname?.[0]) && (
-                                                <div className='validaciones'>
-                                                    {validacionesFormulario.lastname?.[0]}
+                                            {validacionesFormulario.lastname?.[0] && (
+                                                <div className='validaciones text-danger'>
+                                                    {validacionesFormulario.lastname[0]}
                                                 </div>
                                             )}
                                         </div>
@@ -169,23 +217,39 @@ const submit = async () => {
                                     <div className="form-group row">
                                         <div className="col-md-6">
                                             <div className="form-item">
-                                                <input onChange={handleChange} value={formData.email}  type="text" id="email" name="email" className="form-control" placeholder="Dirección de correo electrónico"/>
+                                                <input 
+                                                    onChange={handleChange} 
+                                                    value={formData.email} 
+                                                    type="email" 
+                                                    id="email" 
+                                                    name="email" 
+                                                    className={`form-control ${validacionesFormulario.email ? 'is-invalid' : ''}`} 
+                                                    placeholder="Dirección de correo electrónico"
+                                                    disabled={isSubmitting}
+                                                />
                                             </div>
-
-                                            {(validacionesFormulario.email?.[0]) && (
-                                                <div className='validaciones'>
-                                                    {validacionesFormulario.email?.[0]}
+                                            {validacionesFormulario.email?.[0] && (
+                                                <div className='validaciones text-danger'>
+                                                    {validacionesFormulario.email[0]}
                                                 </div>
                                             )}
                                         </div>
                                         <div className="col-md-6">
                                             <div className="form-item">
-                                                <input onChange={handleChange} value={formData.phone} type="text" id="phone" name="phone" className="form-control" placeholder="Número de teléfono"/>
+                                                <input 
+                                                    onChange={handleChange} 
+                                                    value={formData.phone} 
+                                                    type="tel" 
+                                                    id="phone" 
+                                                    name="phone" 
+                                                    className={`form-control ${validacionesFormulario.phone ? 'is-invalid' : ''}`} 
+                                                    placeholder="Número de teléfono"
+                                                    disabled={isSubmitting}
+                                                />
                                             </div>
-
-                                            {(validacionesFormulario.phone?.[0]) && (
-                                                <div className='validaciones'>
-                                                    {validacionesFormulario.phone?.[0]}
+                                            {validacionesFormulario.phone?.[0] && (
+                                                <div className='validaciones text-danger'>
+                                                    {validacionesFormulario.phone[0]}
                                                 </div>
                                             )}
                                         </div>
@@ -193,18 +257,33 @@ const submit = async () => {
                                     <div className="form-group row">
                                         <div className="col-md-12">
                                             <div className="form-item message-item">
-                                                <textarea onChange={handleChange} value={formData.message} id="message" name="message" cols="30" rows="5" className="form-control address" placeholder="Mensaje"></textarea>
+                                                <textarea 
+                                                    onChange={handleChange} 
+                                                    value={formData.message} 
+                                                    id="message" 
+                                                    name="message" 
+                                                    cols="30" 
+                                                    rows="5" 
+                                                    className={`form-control address ${validacionesFormulario.message ? 'is-invalid' : ''}`} 
+                                                    placeholder="Mensaje"
+                                                    disabled={isSubmitting}
+                                                ></textarea>
                                             </div>
-
-                                            {(validacionesFormulario.message?.[0]) && (
-                                                <div className='validaciones'>
-                                                    {validacionesFormulario.message?.[0]}
+                                            {validacionesFormulario.message?.[0] && (
+                                                <div className='validaciones text-danger'>
+                                                    {validacionesFormulario.message[0]}
                                                 </div>
                                             )}
                                         </div>
                                     </div>
                                     <div className="submit-btn">
-                                        <input onClick={submit} id="submit" className="rr-primary-btn" value="Enviar mensaje" type="button"/>
+                                        <button 
+                                            type="submit" 
+                                            className="rr-primary-btn" 
+                                            disabled={isSubmitting}
+                                        >
+                                            {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
+                                        </button>
                                     </div>
                                 </form>
                             </div>
@@ -213,9 +292,5 @@ const submit = async () => {
                 </div>
             </div>
         </section>
-
-    )
-
+    );
 }
-
-

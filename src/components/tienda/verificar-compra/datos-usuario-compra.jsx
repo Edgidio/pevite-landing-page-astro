@@ -94,7 +94,7 @@ export const DatosUsuarioCompra = () => {
             };
 
             // Hacer la petición POST
-            const response = await axios.post('https://backend.pevite.com.ve/admin/orders', orderData, {
+            const response = await axios.post('http://localhost:4000/admin/orders', orderData, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -270,7 +270,7 @@ export const DatosUsuarioCompra = () => {
                                 <div key={producto.id} className="order-item">
                                     <div className="order-left">
                                         <div className="order-img">
-                                            <img src={`https://backend.pevite.com.ve/${producto.imagen}`} alt="img" />
+                                            <img src={`http://localhost:4000/${producto.imagen}`} alt="img" />
                                         </div>
                                     </div>
                                     <div className="order-right">
