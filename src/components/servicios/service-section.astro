@@ -22,8 +22,9 @@ let mensaje
 
 console.log("cargo")
 try {
+    console.log("Estamos dentro")
   const response = await axios.get('https://backend.pevite.com.ve/admin/servicios');
-   
+   console.log("mas dentro")
   servicios = response.data;
 
   console.log("ENTRO", servicios)
@@ -32,6 +33,9 @@ try {
   
 } catch (error) {
   
+    console.log("hubo un errro")
+
+    console.log(error)
 
   if (error instanceof AxiosError) {
 
@@ -44,8 +48,11 @@ try {
   }
 
   servicios = []; 
+
+  console.log("Dentro salir")
 }
 
+console.log("salimos")
 ---
 
 
