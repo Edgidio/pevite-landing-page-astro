@@ -30,7 +30,7 @@ export interface Details {
 let servicio: Service[];
 let mensaje
 try {
-  const response = await axios.get('https://backend.pevite.com.ve/admin/servicios/' + id);
+  const response = await axios.get('http://localhost:4000/admin/servicios/' + id);
   servicio = response.data;
   
 } catch (error) {

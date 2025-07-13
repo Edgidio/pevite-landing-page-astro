@@ -5,7 +5,7 @@ let servicios;
 let mensaje;
 
 try {
-    const serviciosRes = await axios.get("https://backend.pevite.com.ve/admin/servicios/four")
+    const serviciosRes = await axios.get("http://localhost:4000/admin/servicios/four")
     servicios = serviciosRes.data
 } catch (error) {
   if (error instanceof AxiosError) {

@@ -23,7 +23,7 @@ let mensaje
 console.log("cargo")
 try {
     console.log("Estamos dentro")
-  const response = await axios.get('https://backend.pevite.com.ve/admin/servicios');
+  const response = await axios.get('http://localhost:4000/admin/servicios');
    console.log("mas dentro")
   servicios = response.data;
 
