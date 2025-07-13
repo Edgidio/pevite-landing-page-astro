@@ -53,7 +53,7 @@ function Subscriber() {
         setIsSubmitting(true);
 
         try {
-            const res = await axios.post("http://localhost:4000/admin/subscribes/", {
+            const res = await axios.post("https://backend.pevite.com.ve/admin/subscribes/", {
                 email: correo
             }, {
                 headers: {

@@ -29,7 +29,7 @@ export default function DetailsProducto({id}) {
         // Hacer la consulta a la API
         const fetchProducto = async () => {
             try {
-                const response = await fetch(`http://localhost:4000/admin/productos/${id}`);
+                const response = await fetch(`https://backend.pevite.com.ve/admin/productos/${id}`);
 
 
 
@@ -153,17 +153,17 @@ export default function DetailsProducto({id}) {
                                 >
                                     <SwiperSlide>
                                         <div className="gallary-item">
-                                            <img src={`http://localhost:4000/${producto.imagenes.medium[0]}`} alt="shop"/>
+                                            <img src={`https://backend.pevite.com.ve/${producto.imagenes.medium[0]}`} alt="shop"/>
                                         </div>
                                     </SwiperSlide>
                                     <SwiperSlide>
                                         <div className="gallary-item">
-                                            <img src={`http://localhost:4000/${producto.imagenes.medium[1]}`} alt="shop"/>
+                                            <img src={`https://backend.pevite.com.ve/${producto.imagenes.medium[1]}`} alt="shop"/>
                                         </div>
                                     </SwiperSlide>
                                     <SwiperSlide>
                                         <div className="gallary-item">
-                                            <img src={`http://localhost:4000/${producto.imagenes.medium[2]}`} alt="shop"/>
+                                            <img src={`https://backend.pevite.com.ve/${producto.imagenes.medium[2]}`} alt="shop"/>
                                         </div>
                                     </SwiperSlide>
                                 </Swiper>
@@ -182,17 +182,17 @@ export default function DetailsProducto({id}) {
                                 >
                                     <SwiperSlide>
                                         <div className="thumb-item">
-                                            <img src={`http://localhost:4000/${producto.imagenes.small[0]}`} alt="shop"/>
+                                            <img src={`https://backend.pevite.com.ve/${producto.imagenes.small[0]}`} alt="shop"/>
                                         </div>
                                     </SwiperSlide>
                                     <SwiperSlide>
                                         <div className="thumb-item">
-                                            <img src={`http://localhost:4000/${producto.imagenes.small[1]}`} alt="shop"/>
+                                            <img src={`https://backend.pevite.com.ve/${producto.imagenes.small[1]}`} alt="shop"/>
                                         </div>
                                     </SwiperSlide>
                                     <SwiperSlide>
                                         <div className="thumb-item">
-                                            <img src={`http://localhost:4000/${producto.imagenes.small[2]}`} alt="shop"/>
+                                            <img src={`https://backend.pevite.com.ve/${producto.imagenes.small[2]}`} alt="shop"/>
                                         </div>
                                     </SwiperSlide>
                                 </Swiper>

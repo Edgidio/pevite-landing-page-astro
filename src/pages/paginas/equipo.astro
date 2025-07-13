@@ -9,7 +9,7 @@ import axios, { AxiosError } from 'axios';
 let equipo;
 let mensaje
 try {
-  const responseEquipo = await axios.get('http://localhost:4000/admin/equipo');
+  const responseEquipo = await axios.get('https://backend.pevite.com.ve/admin/equipo');
 
   equipo = responseEquipo.data;
   

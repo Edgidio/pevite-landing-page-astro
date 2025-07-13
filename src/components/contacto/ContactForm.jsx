@@ -39,7 +39,7 @@ export default function ContactForm() {
         setValidacionesFormulario({});
 
         try {
-            const res = await axios.post("http://localhost:4000/admin/contacto", formData, {
+            const res = await axios.post("https://backend.pevite.com.ve/admin/contacto", formData, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
