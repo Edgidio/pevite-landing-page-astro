@@ -23,6 +23,10 @@ try {
   const response = await axios.get('https://backend.pevite.com.ve/admin/servicios');
    
   servicios = response.data;
+
+  console.log("ENTRO", servicios)
+
+  console.log(response, "respuesta")
   
 } catch (error) {
   
